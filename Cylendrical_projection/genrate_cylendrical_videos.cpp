@@ -24,16 +24,16 @@ int main(){
     // cv::VideoCapture video2("Cylendrically_projected_videos/front_videos/Mid_cyl.mp4");
     // cv::VideoCapture video3("Cylendrically_projected_videos/front_videos/Right_cyl.mp4");
      
-    /* cv::VideoCapture video1("/home/karthik/workspace/Phase-2/input_videos_new/front_videos/F.mp4"); */
-    /* cv::VideoCapture video2("/home/karthik/workspace/Phase-2/input_videos_new/front_videos/FL.mp4"); */
-    /* cv::VideoCapture video3("/home/karthik/workspace/Phase-2/input_videos_new/front_videos/FR.mp4"); */
+    /* cv::VideoCapture video1("/home/karthik/workspace/Phase-2/Input_videos/front_videos/F.mp4"); */
+    /* cv::VideoCapture video2("/home/karthik/workspace/Phase-2/Input_videos/front_videos/FL.mp4"); */
+    /* cv::VideoCapture video3("/home/karthik/workspace/Phase-2/Input_videos/front_videos/FR.mp4"); */
 
-    /* cv::VideoCapture video1("/home/karthik/workspace/Phase-2/input_videos_new/back_videos/B.mp4"); */
-    /* cv::VideoCapture video2("/home/karthik/workspace/Phase-2/input_videos_new/back_videos/BL.mp4"); */
-    /* cv::VideoCapture video3("/home/karthik/workspace/Phase-2/input_videos_new/back_videos/BR.mp4"); */
+    /* cv::VideoCapture video1("/home/karthik/workspace/Phase-2/Input_videos/back_videos/B.mp4"); */
+    /* cv::VideoCapture video2("/home/karthik/workspace/Phase-2/Input_videos/back_videos/BL.mp4"); */
+    /* cv::VideoCapture video3("/home/karthik/workspace/Phase-2/Input_videos/back_videos/BR.mp4"); */
 
-    cv::VideoCapture video1("/home/karthik/workspace/Phase-2/input_videos_new/side_videos/L.mp4");
-    cv::VideoCapture video2("/home/karthik/workspace/Phase-2/input_videos_new/side_videos/R.mp4");
+    cv::VideoCapture video1("/home/karthik/workspace/Phase-2/Input_videos/side_videos/L.mp4");
+    cv::VideoCapture video2("/home/karthik/workspace/Phase-2/Input_videos/side_videos/R.mp4");
 
     // cv::VideoCapture video1("/home/karthik/workspace/Phase-1/sift_video_stitch/Three_Video_feeds/sift_cpu/fingvideos/center.mp4");
     // cv::VideoCapture video2("/home/karthik/workspace/Phase-1/sift_video_stitch/Three_Video_feeds/sift_cpu/fingvideos/left.mp4");
