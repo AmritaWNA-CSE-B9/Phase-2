@@ -17,13 +17,13 @@ cv::cuda::GpuMat shiftFrame(cv::cuda::GpuMat image, int x, int y, cv::Size_<int>
 }
 
 int main(){
-    // cv::VideoCapture video1("../video_panaroma/front_panoroma.mp4");
-    // cv::VideoCapture video2("../side_videos/Left_cyl.mp4");
-    // cv::VideoCapture video3("../video_panaroma/back_panorma.mp4");
+     cv::VideoCapture video1("../video_panaroma/front_panoroma.mp4");
+     cv::VideoCapture video2("../side_videos/Left_cyl.mp4");
+     cv::VideoCapture video3("../video_panaroma/back_panorma.mp4");
 
-    cv::VideoCapture video1("/home/karthik/workspace/Phase-2/stitching/back_videos/Left_cyl.mp4");
-    cv::VideoCapture video2("/home/karthik/workspace/Phase-2/stitching/back_videos/Mid_cyl.mp4");
-    cv::VideoCapture video3("/home/karthik/workspace/Phase-2/stitching/back_videos/Right_cyl.mp4");
+    /* cv::VideoCapture video1("/home/karthik/workspace/Phase-2/stitching/back_videos/Left_cyl.mp4"); */
+    /* cv::VideoCapture video2("/home/karthik/workspace/Phase-2/stitching/back_videos/Mid_cyl.mp4"); */
+    /* cv::VideoCapture video3("/home/karthik/workspace/Phase-2/stitching/back_videos/Right_cyl.mp4"); */
 
     cv::Mat Frame1;
     cv::Mat Frame2;
@@ -48,10 +48,10 @@ int main(){
 
     int ROI_y, ROI_x; 
     
-    cv::Size_<int> maskSize = (Frame1.size() + Frame2.size() + Frame3.size());
+    cv::Size_<int> maskSize = (Frame1.size() * 4);
     ROI_y = Frame2.size().height;
     Frame2_gpu.upload(Frame2);
-    Frame2_gpu = shiftFrame(Frame2_gpu, Frame2.size().width, 0, cv::Size_<int>(maskSize.width, Frame1.size().height));
+    Frame2_gpu = shiftFrame(Frame2_gpu, maskSize.width / 2, maskSize.height / 2, cv::Size_<int>(maskSize.width, maskSize.height));
     Frame2_gpu.download(Frame2);
 
     Homography hestimator;
@@ -81,7 +81,7 @@ int main(){
             video2 >> Frame2;
             video3 >> Frame3;
 
-            if (frameCount <= 5000) {
+            if (frameCount <= 600) {
                 if (Frame1.empty() || Frame2.empty() || Frame3.empty()) {
                     std::cout << "Loop back\n";
                     video1.set(cv::CAP_PROP_POS_FRAMES, 0);
@@ -98,7 +98,8 @@ int main(){
             cv::cuda::GpuMat transformedFrameLeft;
             cv::cuda::GpuMat tranformedFrameRight;
 
-            Frame2_gpu = shiftFrame(Frame2_gpu, Frame2.size().width, 0, cv::Size_<int>(maskSize.width, Frame1.size().height));
+            // Frame2_gpu = shiftFrame(Frame2_gpu, Frame2.size().width, 0, cv::Size_<int>(maskSize.width, Frame1.size().height));
+            Frame2_gpu = shiftFrame(Frame2_gpu, maskSize.width / 2, maskSize.height / 2, cv::Size_<int>(maskSize.width, maskSize.height));
 
             cv::cuda::warpPerspective(Frame1_gpu, transformedFrameLeft, h1, Frame2_gpu.size());
             cv::cuda::warpPerspective(Frame3_gpu, tranformedFrameRight, h2, Frame2_gpu.size());
@@ -121,9 +122,8 @@ int main(){
             cv::add(result, RightFrame, result);
 
             auto t2 = std::chrono::high_resolution_clock::now(); // end time
-            cv::imshow("result", result);
-
-
+            /* cv::imshow("result", result); */
+            cv::imwrite("../pano_res/pano_" + std::to_string(frameCount) + ".png", result);
             auto duration = std::chrono::duration_cast<std::chrono::microseconds>(t2 - t1).count() / (float)1000;
             double fps = 1000 / (double)duration; // Optional
             frameCount++; //Optional
