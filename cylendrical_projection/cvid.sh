@@ -25,4 +25,3 @@ cd ../Right
 
 ffmpeg -r 30 -i "Right_%d.png" -c:v libx264 -crf 20 -pix_fmt yuv420p Right_cyl.mp4
 cp -r ./Right_cyl.mp4 ../../
-
