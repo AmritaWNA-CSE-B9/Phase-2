@@ -13,7 +13,7 @@ this can be take by running the **run.sh file in the take_pics folder** in the c
 Form that the result is obtained by running the **run.sh script in the camera_caliberation folder**.
 
 ## Cylinderical projection
-This program is used to project the input videos onto a cylinder, this is done by specifying the input videos in  genrate_cylendrical_videos.cpp file and then executing it though the run.sh script, once the projection is done, then run the cvid.sh file to get the exported videos.
+This program is used to project the input videos onto a cylinder, this is done by specifying the **input videos in  genrate_cylendrical_videos.cpp** file and then **executing it though the run.sh** script, once the projection is done, then **run the cvid.sh file to get the exported videos**.
 
 ## Stitching Module.
 This consists of two modules, CPU and NVIDIA CUDA folder, the input cylendrically warped videos are specified into the sift_warp.cpp file, and the perform the stitching by executing its run.sh program, once the program is finished, the compiled video frames can be merged to a video by executing the script **compile_videos.sh**. If there is a need to extract the FPS trend of the stitched videos then, a plot can be obtained by running the **export_stats.py** file.
