@@ -1,3 +1,4 @@
+Paper Link : [Click Here](https://ieeexplore.ieee.org/abstract/document/10593115)
 # Phase-2
 This project is a skew tolerant video stitching application, which stitches up pre-recorded videos upto 360 degree.
 
