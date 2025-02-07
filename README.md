@@ -2,6 +2,13 @@ Paper Link : [Click Here](https://ieeexplore.ieee.org/abstract/document/10593115
 # Phase-2
 This project is a skew tolerant video stitching application, which stitches up pre-recorded videos upto 360 degree.
 
+Youtube Video Link (click to view) : <br>
+VR View <br>
+[![IMAGE ALT TEXT HERE](https://img.youtube.com/vi/gIDiH3q1z6s/0.jpg)](https://www.youtube.com/watch?v=gIDiH3q1z6s) <br>
+
+Stitched Video <br>
+[![IMAGE ALT TEXT HERE](https://img.youtube.com/vi/x_UzMxaZMM0/0.jpg)](https://www.youtube.com/watch?v=x_UzMxaZMM0) <br>
+
 # Modules in the project
 
 ## Camera caliberation
